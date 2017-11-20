@@ -21,30 +21,49 @@ services:
      - invoicing
     ports:
      - "8080:80"
-  postgres:
-    build: postgres
+#  postgres:
+#    build: postgres
+#    environment:
+#      POSTGRES_PASSWORD: dbpass
+#      POSTGRES_USER: dbuser
+  mysql:
+    build: mysql
     environment:
-      POSTGRES_PASSWORD: dbpass
-      POSTGRES_USER: dbuser
+     MYSQL_ROOT_PASSWORD: "password"
+     MYSQL_USER: "dbuser"
+     MYSQL_PASSWORD: "dbpass"
+    ports:
+     - "0.0.0.0:3306:3306"
+    healthcheck:
+      test: ping 
+      timeout: 20s
+      retries: 10
   order:
     build: ../microservice-kafka/microservice-kafka-order
     links:
      - kafka
-     - postgres
+     - mysql
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    depends_on:
+      - mysql
+        #condition: service_healthy
   shipping:
     build: ../microservice-kafka/microservice-kafka-shipping
     links:
      - kafka
-     - postgres
+     - mysql
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    depends_on:
+     - mysql
   invoicing:
     build: ../microservice-kafka/microservice-kafka-invoicing
     links:
      - kafka
-     - postgres
+     - mysql
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    depends_on:
+      - mysql
 

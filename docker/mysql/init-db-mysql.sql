@@ -1,0 +1,13 @@
+GRANT ALL ON *.* TO 'dbuser'@'%';
+CREATE DATABASE  IF NOT EXISTS dbshipping;
+USE dbshipping;
+GRANT ALL PRIVILEGES ON dbshipping TO dbuser;
+FLUSH PRIVILEGES;
+CREATE DATABASE  IF NOT EXISTS  dbinvoicing;
+USE dbinvoicing;
+GRANT ALL PRIVILEGES ON dbinvoicing TO dbuser;
+FLUSH PRIVILEGES;
+CREATE DATABASE  IF NOT EXISTS  dborder;
+USE dborder;
+GRANT ALL PRIVILEGES ON dborder TO dbuser;
+FLUSH PRIVILEGES;
