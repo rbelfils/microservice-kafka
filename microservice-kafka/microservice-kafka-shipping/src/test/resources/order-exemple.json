@@ -1,0 +1,47 @@
+{
+  "id": 1,
+  "customer": {
+    "customerId": 2,
+    "name": "Johnson",
+    "firstname": "Rod",
+    "email": "rod@somewhere.com"
+  },
+  "updated": 1511247509109,
+  "shippingAddress": {
+    "street": "499 route de chapeze",
+    "zip": "38300",
+    "city": "Saiont Savin"
+  },
+  "billingAddress": {
+    "street": "499 route de chapeze",
+    "zip": "38300",
+    "city": "Saint Savin"
+  },
+  "orderLine": [
+    {
+      "count": 10,
+      "item": {
+        "itemId": 1,
+        "name": "iPod",
+        "price": 42.0
+      }
+    },
+    {
+      "count": 9,
+      "item": {
+        "itemId": 2,
+        "name": "iPod touch",
+        "price": 21.0
+      }
+    },
+    {
+      "count": 0,
+      "item": {
+        "itemId": 1,
+        "name": "iPod",
+        "price": 42.0
+      }
+    }
+  ],
+  "numberOfLines": 3
+}
