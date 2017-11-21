@@ -1,3 +1,4 @@
+
 Microservice Kafka Sample
 ==================
 
@@ -29,7 +30,7 @@ Technologies
 - Apache httpd
 - Kafka
 - Zookeeper
-- Postgres
+- Postgres => Replaced by Mysql, problem on Windows
 - Docker Compose to link the containers.
 
 How To Run
