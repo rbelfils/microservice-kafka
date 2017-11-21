@@ -34,10 +34,6 @@ services:
      MYSQL_PASSWORD: "dbpass"
     ports:
      - "0.0.0.0:3306:3306"
-    healthcheck:
-      test: ping 
-      timeout: 20s
-      retries: 10
   order:
     build: ../microservice-kafka/microservice-kafka-order
     links:
@@ -47,7 +43,6 @@ services:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     depends_on:
       - mysql
-        #condition: service_healthy
   shipping:
     build: ../microservice-kafka/microservice-kafka-shipping
     links:
